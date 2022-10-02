@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace dictionary_examCSh
@@ -11,7 +13,6 @@ namespace dictionary_examCSh
     public class EnToRu
     {
         private Dictionary<string, List<string>> slovar;
-
         public EnToRu()
         {
             slovar = new Dictionary<string, List<string>>();
@@ -29,9 +30,9 @@ namespace dictionary_examCSh
         {
             if (slovar.ContainsKey(str1) && slovar[str1].Contains(str2)) slovar[str1].Remove(str2);
         }
-        public void Print(string str = "all")
+        public void Print(string str = " ")
         {
-            if (str == "all")
+            if (str == " ")
             {
                 foreach (var item in slovar)
                 {
@@ -64,31 +65,57 @@ namespace dictionary_examCSh
                 }
             }
         }
-
-        public void readFile(string patch = "dict.txt")
+        public bool export(string word, string patch = "export.txt")
         {
-            using (var reader = new StreamReader(patch))
+            try
             {
-                while (!reader.EndOfStream)
+                using (var writer = new StreamWriter(patch))
                 {
-                    string temp = reader.ReadLine();
-                    string[] str = temp.Split('\t');
-                    Add(str[0], str[1]);
+                    if (slovar.ContainsKey(word))
+                    {
+                        writer.Write(word + " = ");
+                        writer.WriteLine(string.Join(" ", slovar[word]));
+                    }
+                    else
+                    {
+
+                        throw new Exception("Ошибка экспорта");
+                  
+                    }
                 }
+                return true;
             }
-            //foreach (var item in slovar)
-            //{
-
-            //    foreach (var item2 in item.Value)
-            //    {
-            //        Console.WriteLine($"{item.Key}\t{item2}");
-            //    }
-            //}
-
-
+            catch
+            {
+                File.Delete(patch);
+                Console.WriteLine("Ошибка экспорта");
+                Thread.Sleep(1000);
+                return false;
+            }
 
         }
-           
-    }
 
+        public bool readFile(string patch = "dict.txt")
+        {
+            try
+            {
+                using (var reader = new StreamReader(patch))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        string temp = reader.ReadLine();
+                        string[] str = temp.Split('\t');
+                        Add(str[0], str[1]);
+                    }
+                    return true;
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Файл не найден");
+                Thread.Sleep(1700);
+                return false;
+            }
+        }  
+    }
 }
