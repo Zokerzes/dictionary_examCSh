@@ -12,13 +12,15 @@ namespace dictionary_examCSh
    
     class Program
     {
+        
         static void Main(string[] args)
         {
-            EnToRu slovar = new EnToRu();
+            
+            //EnToRu slovar = new EnToRu();
             //slovar.Add("father", "отец");
-           // slovar.Add("father", "папа");
+            // slovar.Add("father", "папа");
             //slovar.Add("father", "отчим");
-           // slovar.Add("mother", "мама");
+            // slovar.Add("mother", "мама");
             //slovar.Print("father");
             //slovar.Del("father","отчим");
             //slovar.Print("father");
@@ -28,9 +30,13 @@ namespace dictionary_examCSh
 
             //slovar.writeFile();
 
-            slovar.readFile();
-            slovar.Print("mother");
-            slovar.Print("brother");
+            //slovar.readFile();
+
+            //slovar.Print();
+            //slovar.Del("father", "отчим");
+            //slovar.Print();
+            Menu menu = new Menu();
+
 
 
             Console.ReadKey(true);

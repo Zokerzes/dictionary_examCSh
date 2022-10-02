@@ -29,9 +29,20 @@ namespace dictionary_examCSh
         {
             if (slovar.ContainsKey(str1) && slovar[str1].Contains(str2)) slovar[str1].Remove(str2);
         }
-        public void Print(string str)
+        public void Print(string str = "all")
         {
-            if (slovar.ContainsKey(str))
+            if (str == "all")
+            {
+                foreach (var item in slovar)
+                {
+                    Console.WriteLine($"{item.Key}");
+                    foreach (var item2 in item.Value)
+                    {
+                        Console.WriteLine($"\t{item2}"); 
+                    }
+                }
+            }
+            else if (slovar.ContainsKey(str))
             {
                 Console.Write(str + " = ");
                 Console.WriteLine(string.Join(" ", slovar[str]));
@@ -47,7 +58,7 @@ namespace dictionary_examCSh
                     
                     foreach (var item2 in item.Value)
                     {
-                        Console.WriteLine($"{item.Key}\t{item2}");
+                        //Console.WriteLine($"{item.Key}\t{item2}");
                         writer.WriteLine($"{item.Key}\t{item2}");
                     }
                 }
@@ -65,14 +76,14 @@ namespace dictionary_examCSh
                     Add(str[0], str[1]);
                 }
             }
-            foreach (var item in slovar)
-            {
+            //foreach (var item in slovar)
+            //{
 
-                foreach (var item2 in item.Value)
-                {
-                    Console.WriteLine($"{item.Key}\t{item2}");
-                }
-            }
+            //    foreach (var item2 in item.Value)
+            //    {
+            //        Console.WriteLine($"{item.Key}\t{item2}");
+            //    }
+            //}
 
 
 
