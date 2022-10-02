@@ -62,7 +62,7 @@ namespace dictionary_examCSh
             WriteLine("Введите слово");
             word = ReadLine();
             Console.Clear();
-            slovar.Print(word);
+            slovar.print(word);
             WriteLine("Для продолжения нажмите Ввод");
             Console.ReadLine();
         }
@@ -72,9 +72,9 @@ namespace dictionary_examCSh
             word = ReadLine();
             WriteLine("Введите перевод");
             word1 = ReadLine();
-            slovar.Add(word, word1);
+            slovar.add(word, word1);
             Console.Clear();
-            slovar.Print(word);
+            slovar.print(word);
             WriteLine("Для продолжения нажмите Ввод");
             Console.ReadLine();
         }
@@ -82,7 +82,7 @@ namespace dictionary_examCSh
         {
             WriteLine("Введите слово");
             word = ReadLine();
-            slovar.Del(word);
+            slovar.del(word);
             Console.Clear();
             WriteLine($"Слово {word} удалено со всеми переводами\nДля продолжения нажмите Ввод");
             Console.ReadLine();
@@ -93,7 +93,7 @@ namespace dictionary_examCSh
             word = ReadLine();
             WriteLine("Введите перевод");
             word1 = ReadLine();
-            slovar.Del(word, word1);
+            slovar.del(word, word1);
             Console.Clear();
             WriteLine($"Для слова {word} удален перевод {word1}\nДля продолжения нажмите Ввод");
             WriteLine("Для продолжения нажмите Ввод");
@@ -102,7 +102,7 @@ namespace dictionary_examCSh
         public void case7()
         {
             Console.Clear();
-            slovar.Print();
+            slovar.print();
             WriteLine("Для продолжения нажмите Ввод");
             Console.ReadLine();
         }
@@ -114,8 +114,8 @@ namespace dictionary_examCSh
             word1 = ReadLine();
             WriteLine("Введите новый перевод");
             word2 = ReadLine();
-            slovar.Del(word, word1);
-            slovar.Add(word, word2);
+            slovar.del(word, word1);
+            slovar.add(word, word2);
             Console.Clear();
             WriteLine($"Для слова {word} заменён перевод {word1} на перевод {word2}\nДля продолжения нажмите Ввод");
             Console.ReadLine();
@@ -130,7 +130,7 @@ namespace dictionary_examCSh
             if (slovar.export(word1, word))
             {
                 Console.Clear();
-                slovar.Print(word1);
+                slovar.print(word1);
                 WriteLine("Для продолжения нажмите Ввод");
                 Console.ReadLine();
             }

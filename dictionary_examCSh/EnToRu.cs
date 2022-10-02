@@ -17,20 +17,20 @@ namespace dictionary_examCSh
         {
             slovar = new Dictionary<string, List<string>>();
         }
-        public void Add(string str1, string str2)
+        public void add(string str1, string str2)
         {
             if (slovar.ContainsKey(str1)) slovar[str1].Add(str2);
             else slovar.Add(str1, new List<string> { str2 });
         }
-        public void Del(string str)
+        public void del(string str)
         {
             if (slovar.ContainsKey(str)) slovar.Remove(str);
         }
-        public void Del(string str1, string str2)
+        public void del(string str1, string str2)
         {
             if (slovar.ContainsKey(str1) && slovar[str1].Contains(str2)) slovar[str1].Remove(str2);
         }
-        public void Print(string str = " ")
+        public void print(string str = " ")
         {
             if (str == " ")
             {
@@ -105,7 +105,7 @@ namespace dictionary_examCSh
                     {
                         string temp = reader.ReadLine();
                         string[] str = temp.Split('\t');
-                        Add(str[0], str[1]);
+                        add(str[0], str[1]);
                     }
                     return true;
                 }
