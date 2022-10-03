@@ -3,3 +3,4 @@ father	папа
 father	отчим
 mother	мама
 mother	мамуля
+true	правда
