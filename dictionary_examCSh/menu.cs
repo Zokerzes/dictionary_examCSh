@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace dictionary_examCSh
@@ -151,7 +145,8 @@ namespace dictionary_examCSh
                                   "6  - Удалить одно значение перевода\n" +
                                   "7  - Вывести весь словарь\n" +
                                   "8  - Заменить перевод\n" +
-                                  "9  - Экспорт слова и его перевода(ов) в файл\n");
+                                  "9  - Экспорт слова и его перевода(ов) в файл\n" +
+                                  "0  - Выход\n");
                 key = Convert.ToInt32(Console.ReadLine());               
                 switch (key)
                 {
